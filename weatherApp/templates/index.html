@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block hero %}
+  <div class="form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="city" placeholder="Enter City name">
+        <button type="submit" >Add City</button>
+    </form>
+  </div>
+
+  <div class="grid">
+    {% for cityy in weather %}
+
+    <div>
+        <img src="http://openweathermap.org/img/w/{{cityy.icon}}.png" alt="weather city">
+        <h1>{{cityy.city}}</h1>
+        <h3>{{cityy.temperate}}</h3>
+        <p>{{cityy.description}}</p>
+    </div>
+
+    {% endfor %}
+    
+  </div>
+
+{% endblock hero %}
